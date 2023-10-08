@@ -1,15 +1,16 @@
 // import PropTypes from 'prop-types';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../assets/Components/Navbar/Navbar';
-import Home from '../Pages/Home/Home';
+import Footer from '../assets/Components/Footer/Footer';
+
 
 const Root = () => {
     return (
         <div>
             <Navbar></Navbar>
             <Outlet>
-                <Home/>
             </Outlet>
+            <Footer/>
         </div>
     );
 };

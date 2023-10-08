@@ -4,19 +4,16 @@ const Navbar = () => {
   const links=
   <>
    <li>
-        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 active:bg-pink-600" to="/" activeClassName="active-link">Home</NavLink>
+        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white " to="/" activeClassName="active-link">Home</NavLink>
     </li>
     <li>
-        <NavLink className="text-[18px] text-gray-500 font-normal" to="/about" activeClassName="active-link">About</NavLink>
+        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white" to="/about">About</NavLink>
     </li>
     <li>
-        <NavLink className="text-[18px] text-gray-500 font-normal" to="/career" activeClassName="active-link">Services</NavLink>
+        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white " to="/services" activeClassName="active-link">Services</NavLink>
     </li>
     <li>
-        <NavLink className="text-[18px] text-gray-500 font-normal" to="/gallery" activeClassName="active-link">Gallery</NavLink>
-    </li>
-    <li>
-        <NavLink className="text-[18px] text-gray-500 font-normal" to="/contact" activeClassName="active-link">Contact</NavLink>
+        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white " to="/gallery" activeClassName="active-link">Gallery</NavLink>
     </li>
   </>
     return (
@@ -40,7 +37,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end flex"> {/* Added flex */}
-          <a className="btn">Button</a>
+          <NavLink to="/login"><a className="btn bg-pink-600 text-white hover:bg-[transparent] hover:border-2 hover:border-pink-600 hover:text-pink-600 font-bold">Login</a></NavLink>
         </div>
       </div>
     );

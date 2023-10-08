@@ -2,7 +2,7 @@
 
 const Header = () => {
   return (
-    <div className="hero min-h-[80vh]" style={{backgroundImage: 'url(https://i.ibb.co/84qr9Tp/carousel-img-01.jpg)'}}>
+    <div className="hero min-h-[90vh]" style={{backgroundImage: 'url(https://i.ibb.co/84qr9Tp/carousel-img-01.jpg)'}}>
     <div className="hero-overlay bg-opacity-70"></div>
     <div className="hero-content text-center text-neutral-content">
       <div className="max-w-xl">
