@@ -1,15 +1,22 @@
 // import PropTypes from 'prop-types';
-
-import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { FcGoogle } from 'react-icons/fc';
+import { useContext, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
-const {createUser} = useContext(AuthContext)
+const {createUser,signInWithGoogle} = useContext(AuthContext);
+const [error, setError] = useState(null);
+const [register, setRegister] = useState(false);
+const navigate = useNavigate();
 
     const handleRegister= e=>{
         e.preventDefault();
+        setError(null);
+        setRegister(true);
         console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
         const name = form.get('name');
@@ -17,13 +24,59 @@ const {createUser} = useContext(AuthContext)
         const email = form.get('email');
         const password = form.get('password');
         console.log(email, password, image, name);
+
+      // Password validation
+  const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@$!%*?&])(?=.*\d).{8,}$/;
+  if (!passwordPattern.test(password)) {
+    setError("Password must include at least one uppercase letter, one lowercase letter, one special character, one number, and be at least 8 characters long.");
+    setRegister(false);
+    return;
+  }
         //create user
         createUser(email, password)
-        .then(result=>console.log(result.user))
-        .catch(error=>console.error(error.message))
+        .then(result=>{
+          console.log(result.user);
+          setRegister(false);
+          toast.success('Registration successful!', {
+            position: 'top-right',
+            autoClose: 3000, // Close the notification after 3 seconds
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        })
+        .catch(error=>{
+          console.error(error.message);
+          const errorMessage = error.message.split('Firebase:').join('');
+          setError(errorMessage);
+          setRegister(false);
+          toast.warn(`${error}`, {
+            position: 'top-right',
+            autoClose: 3000, // Close the notification after 3 seconds
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        })
     }
+    const handleSignInWithGoogle= (e)=>{
+      e.preventDefault();
+      setError(null);
+      signInWithGoogle()
+      .then(result=>{
+      console.log("Log in with google successfully!", result.user);    
+      navigate(location?.state ? location.state : "/")
+      })
+      .catch(error=>{
+          console.error(error.message);
+          setError(error.message);
+      })
+  }
     return (
         <div>
+          <ToastContainer /> 
         <div className="hero min-h-screen px-[20%] bg-base-200">
 <div className="hero-content flex-col lg:flex-row-reverse">
 <div className="text-center lg:text-left">
@@ -56,10 +109,16 @@ const {createUser} = useContext(AuthContext)
       </label>
       <input type="password" name="password" placeholder="password" className="input border-pink-600 border-2 text-pink-600" required />
     </div>
+    {
+      (error && <p className="text-[16px] font-semibold text-red-500">{error}</p> )
+    }
     <div className="form-control mt-6">
-      <button type="submit" className="btn bg-pink-600 text-white font-bold hover:text-pink-600 hover:bg-[transparent] hover:border-2 hover:border-pink-600">Register</button>
+      <button type="submit" className="btn bg-pink-600 text-white font-bold hover:text-pink-600 hover:bg-[transparent] hover:border-2 hover:border-pink-600">{register ? "Registering..." : "Register"}</button>
     </div>
     <p>Already have an account? <span className="text-pink-600 font-bold"><NavLink to="/login"> Login</NavLink></span></p>
+    <div className='border-0 flex gap-8 mt-6 mx-auto'>
+                <button onClick={handleSignInWithGoogle} className='text-[16px] mb-2 rounded-lg justify-center py-2 px-[50px] flex gap-1 items-center border-[3px] border-t-red-500 border-l-yellow-400 border-b-green-500 border-r-blue-600'><FcGoogle className=""/>Google</button>
+    </div>
   </form>
 </div>
 </div>

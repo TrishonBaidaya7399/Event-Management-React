@@ -1,15 +1,21 @@
 // import PropTypes from 'prop-types';
-
-import { useContext } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useContext, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
-  const {signIn} = useContext(AuthContext);
+  const [logging, setLogging] = useState(false)
+  const {signIn, signInWithGoogle} = useContext(AuthContext);
   const location = useLocation();
+  const [error, setError] = useState(null);
   console.log("Location in the login page: ",location);
   const navigate = useNavigate();
     const handleLogin= e=>{
+      setError(null);
+      setLogging(true)
         e.preventDefault();
         console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
@@ -20,13 +26,48 @@ const Login = () => {
         .then(result=> {
           console.log('User Signed In', result.user);
           navigate (location?.state ? location.state : "/");
+          setLogging(false);
+          toast.success('Registration successful!', {
+            position: 'top-right',
+            autoClose: 3000, // Close the notification after 3 seconds
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
         }
         )
-        .catch(error=> console.error(error.message))
-
+        .catch(error=> {
+          console.error(error.message);
+          const errorMessage = error.message.split('Firebase:').join('');
+          setError(errorMessage);
+          setLogging(false);
+          toast.warn(`${error}`, {
+            position: 'top-right',
+            autoClose: 3000, // Close the notification after 3 seconds
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        })
     }
+    const handleSignInWithGoogle= (e)=>{
+      e.preventDefault();
+      setError(null);
+      signInWithGoogle()
+      .then(result=>{
+      console.log("Log in with google successfully!", result.user);    
+      navigate(location?.state ? location.state : "/")
+      })
+      .catch(error=>{
+          console.error(error.message);
+          setError(error.message);
+      })
+  }
     return (
         <div>
+          <ToastContainer /> 
             <div className="hero min-h-[70vh] px-[20%] bg-base-200">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
@@ -50,10 +91,16 @@ const Login = () => {
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
         </div>
-        <div className="form-control mt-6">
-          <button type="submit" className="btn bg-pink-600 text-white font-bold hover:text-pink-600 hover:bg-[transparent] hover:border-2 hover:border-pink-600">Register</button>
+        {
+        (error && <p className="text-[16px] font-semibold text-red-500">{error}</p> )
+        }
+        <div className="form-control">
+          <button type="submit" className="btn bg-pink-600 text-white font-bold hover:text-pink-600 hover:bg-[transparent] hover:border-2 hover:border-pink-600">{logging ? "Logging..." : "Login"}</button>
         </div>
         <p>Do not have an account? <span className="text-pink-600 font-bold"><NavLink to="/register"> Register</NavLink></span></p>
+        <div className='border-0 flex gap-8 mt-6 mx-auto'>
+                <button onClick={handleSignInWithGoogle} className='text-[16px] mb-2 rounded-lg justify-center py-2 px-[50px] flex gap-1 items-center border-[3px] border-t-red-500 border-l-yellow-400 border-b-green-500 border-r-blue-600'><FcGoogle className=""/>Google</button>
+    </div>
       </form>
     </div>
   </div>
