@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD15-W1pzqSZlioBzyframIX-nQAn__3_Q",
-  authDomain: "tvents-planner.firebaseapp.com",
-  projectId: "tvents-planner",
-  storageBucket: "tvents-planner.appspot.com",
-  messagingSenderId: "310622506895",
-  appId: "1:310622506895:web:9bc8f09f24a88aa51f05fa"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

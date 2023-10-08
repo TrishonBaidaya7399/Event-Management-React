@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Gallery = () => {
     return (
         <div className="lg:mx-[100px] my-12">
-            <h1 className="text-4xl font-bold text-pink-600 text-center">Our Services</h1>
+            <h1 className="text-4xl font-bold text-pink-600 text-center">Our Memories</h1>
             <p className="text-center text-xl font-semibold md:mb-12 mt-6">Step into a world of visual delight with our captivating gallery</p>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 <div className=" p-2 h-[220px]">
