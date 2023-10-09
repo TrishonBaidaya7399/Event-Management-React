@@ -82,7 +82,7 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
             <label tabIndex={0} className=" flex items-center gap-2">
               {/* <p className="text-pink-600 text-[20px] font-semibold">{user?.displayName}</p>  */}
-              <img className="w-[55px] mr-4 rounded-full border-[3px] p-1 border-pink-600" src={user?.photoURL ? user.photoURL : defaultProfile} alt="" />
+              <img className="w-[55px] h-[55px] mr-4 rounded-full border-[3px] p-1 border-pink-600" src={user?.photoURL ? user.photoURL : defaultProfile} alt="" />
             </label>
              <ul tabIndex={0} className="dropdown-content z-[1]  py-2 px-4 flex flex-col items-start justify-center gap-2 shadow bg-pink-100 rounded-lg w-max mt-2">
               <li><p className="text-pink-600 text-[20px] font-semibold">{user?.displayName}</p></li>
