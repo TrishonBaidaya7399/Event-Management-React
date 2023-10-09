@@ -38,19 +38,19 @@ const Navbar = () => {
   const links=
   <>
    <li>
-        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white " to="/" activeClassName="active-link">Home</NavLink>
+        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white text-pink-600 font-semibold" to="/" activeClassName="active-link">Home</NavLink>
     </li>
     <li>
-        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white" to="/about">About</NavLink>
+        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white text-pink-600 font-semibold" to="/about">About</NavLink>
     </li>
     <li>
-        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white " to="/services" activeClassName="active-link">Services</NavLink>
+        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white text-pink-600 font-semibold" to="/services" activeClassName="active-link">Services</NavLink>
     </li>
     <li>
-        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white " to="/gallery" activeClassName="active-link">Gallery</NavLink>
+        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white text-pink-600 font-semibold" to="/gallery" activeClassName="active-link">Gallery</NavLink>
     </li>
     <li>
-        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white " to="/register" activeClassName="active-link">Register</NavLink>
+        <NavLink className="text-[18px] text-gray-500 font-normal hover:bg-pink-600 hover:text-white active:text-white text-pink-600 font-semibold" to="/register" activeClassName="active-link">Register</NavLink>
     </li>
   </>
     return (
