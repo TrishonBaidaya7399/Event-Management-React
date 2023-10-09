@@ -68,11 +68,11 @@ const Login = () => {
     return (
         <div>
           <ToastContainer /> 
-            <div className="hero min-h-[70vh] px-[20%] bg-base-200">
+            <div className="hero min-h-[70vh] px-auto lg:px-[20%] bg-base-200">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold text-pink-600">Login now!</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <h1 className="text-5xl font-bold text-pink-600 mb-6 md:mb-0">Login now!</h1>
+      <p className="py-6 hidden md:block ">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
     </div>
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form onSubmit={handleLogin} className="card-body">

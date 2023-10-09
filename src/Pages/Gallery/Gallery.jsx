@@ -26,9 +26,9 @@ const Gallery = () => {
   };
 
   return (
-    <div className="lg:mx-[100px] my-12">
+    <div className="mx-[20px] md:mx-[50px] lg:mx-[100px] my-12">
       <h1 className="text-4xl font-bold text-pink-600 text-center">Our Memories</h1>
-      <p className="text-center text-xl font-semibold md:mb-12 mt-6">
+      <p className="text-center text-xl font-semibold mb-6 md:mb-12 mt-6">
         Step into a world of visual delight with our captivating gallery
       </p>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

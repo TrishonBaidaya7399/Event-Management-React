@@ -53,7 +53,7 @@ const Navbar = () => {
     </li>
   </>
     return (
-      <div className="navbar bg-base-100 md:px-[100px]">
+      <div className="navbar bg-base-100 px-[20px] md:px-[50px] lg:px-[100px]">
          <ToastContainer /> 
         <div className="navbar-start flex-grow"> {/* Added flex-grow */}
           <div className="dropdown">
@@ -77,16 +77,18 @@ const Navbar = () => {
         <div className="navbar-end flex">
         {
           user ?
-          <div className="dropdown dropdown-end">
+          <div className="flex items-center">
+            <div className="dropdown dropdown-end">
             <label tabIndex={0} className=" flex items-center gap-2">
-              <p className="text-pink-600 text-[20px] font-semibold">{user?.displayName}</p> 
+              {/* <p className="text-pink-600 text-[20px] font-semibold">{user?.displayName}</p>  */}
               <img className="w-[55px] mr-4 rounded-full border-[3px] p-1 border-pink-600" src={user?.photoURL ? user.photoURL : defaultProfile} alt="" />
             </label>
              <ul tabIndex={0} className="dropdown-content z-[1]  py-2 px-4 flex flex-col items-start justify-center gap-2 shadow bg-pink-100 rounded-lg w-max mt-2">
               <li><p className="text-pink-600 text-[20px] font-semibold">{user?.displayName}</p></li>
               <li><p className="text-[14px] font-semibold">{user?.email}</p></li>
-              <li className="mx-auto"> <button onClick={handleSignOut}><a className="btn bg-pink-600 text-white hover:bg-[transparent] mt-2  hover:border-2 hover:border-pink-600 hover:text-pink-600 font-bold">Logout</a></button></li>
              </ul>
+          </div>
+          <button onClick={handleSignOut}><a className="btn bg-pink-600 text-white hover:bg-[transparent] border-2 border-pink-600  hover:border-2 hover:border-pink-600 hover:text-pink-600 font-bold">Logout</a></button>
           </div>
           :
           <NavLink to="/login"><a className="btn border-2 border-pink-600 bg-pink-600 text-white hover:bg-[transparent] hover:border-2 hover:border-pink-600 hover:text-pink-600 font-bold">Login</a></NavLink>

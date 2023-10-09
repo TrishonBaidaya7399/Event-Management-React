@@ -13,9 +13,9 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="flex flex-col md:my-12 mx-[20px] md:mx-[50px] lg:mx-[100px]">
+    <div className="flex flex-col my-6 md:my-12 mx-[20px] md:mx-[50px] lg:mx-[100px]">
       <h1 className="text-4xl font-bold text-pink-600 text-center">Our Services</h1>
-      <p className="text-center text-xl font-semibold md:mb-12 mt-6">
+      <p className="text-center text-xl font-semibold mb-6 md:mb-12 mt-6">
         We provide our best services to make your function more delightful
       </p>
       <div className="card-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

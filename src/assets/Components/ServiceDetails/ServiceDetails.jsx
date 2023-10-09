@@ -16,13 +16,13 @@ const ServiceDetails = () => {
   };
 
   return (
-    <div className="mx-auto w-[70%]">
+    <div className="mx-auto lg:w-[70%]">
       <div className="p-4 my-6 flex flex-col items-center justify-center">
         <img className="w-full rounded-lg" src={img} alt="" />
-        <h1 className="title text-4xl text-pink-600 font-bold mt-6 mb-4">
+        <h1 className="title text-4xl text-center text-pink-600 font-bold mt-6 mb-4">
           {title}
         </h1>
-        <p className="text-xl font-semibold text-gray-500 mb-4 text-center mx-12">
+        <p className="text-xl font-semibold text-gray-500 mb-4 text-center lg:mx-12">
           {longDescription}
         </p>
         <p className="text-2xl text-gray-700 font-bold">
