@@ -27,7 +27,7 @@ const Login = () => {
           console.log('User Signed In', result.user);
           navigate (location?.state ? location.state : "/");
           setLogging(false);
-          toast.success('Registration successful!', {
+          toast.success('Logged in successfully!', {
             position: 'top-right',
             autoClose: 3000, // Close the notification after 3 seconds
             hideProgressBar: false,
@@ -42,7 +42,7 @@ const Login = () => {
           const errorMessage = error.message.split('Firebase:').join('');
           setError(errorMessage);
           setLogging(false);
-          toast.warn(`${error}`, {
+          toast.warn(`Failed to Log in! Try again`, {
             position: 'top-right',
             autoClose: 3000, // Close the notification after 3 seconds
             hideProgressBar: false,

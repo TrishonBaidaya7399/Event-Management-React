@@ -3,12 +3,36 @@ import defaultProfile from "../../Images/user.png"
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import TeventsLogo from "../../Images/Tevents-logo.png"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Navbar = () => {
   const {user, logout} = useContext(AuthContext);
   const handleSignOut = () =>{
     logout()
-    .then()
-    .catch()
+    .then(result=>{
+      console.log("Logged out successfully!", result);
+      toast.success('Logged out successfully!', {
+        position: 'top-right',
+        autoClose: 3000, // Close the notification after 3 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+
+    })
+    .catch(error=>{
+      console.error(error.message);
+      toast.warn('Failed to Log out. Try again!', {
+        position: 'top-right',
+        autoClose: 3000, // Close the notification after 3 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    })
   }
   const links=
   <>
@@ -29,7 +53,8 @@ const Navbar = () => {
     </li>
   </>
     return (
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 md:px-[100px]">
+         <ToastContainer /> 
         <div className="navbar-start flex-grow"> {/* Added flex-grow */}
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -49,11 +74,20 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <div className="navbar-end flex"> {/* Added flex */}
-        <img className="w-[55px] mr-4 rounded-full border-2 border-pink-600" src={user?.photoURL ? user.photoURL : defaultProfile} alt="" />
+        <div className="navbar-end flex">
         {
           user ?
-          <button onClick={handleSignOut}><a className="btn bg-pink-600 text-white hover:bg-[transparent] hover:border-2 hover:border-pink-600 hover:text-pink-600 font-bold">Logout</a></button>
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className=" flex items-center gap-2">
+              <p className="text-pink-600 text-[20px] font-semibold">{user?.displayName}</p> 
+              <img className="w-[55px] mr-4 rounded-full border-[3px] p-1 border-pink-600" src={user?.photoURL ? user.photoURL : defaultProfile} alt="" />
+            </label>
+             <ul tabIndex={0} className="dropdown-content z-[1]  py-2 px-4 flex flex-col items-start justify-center gap-2 shadow bg-pink-100 rounded-lg w-max mt-2">
+              <li><p className="text-pink-600 text-[20px] font-semibold">{user?.displayName}</p></li>
+              <li><p className="text-[14px] font-semibold">{user?.email}</p></li>
+              <li className="mx-auto"> <button onClick={handleSignOut}><a className="btn bg-pink-600 text-white hover:bg-[transparent] mt-2  hover:border-2 hover:border-pink-600 hover:text-pink-600 font-bold">Logout</a></button></li>
+             </ul>
+          </div>
           :
           <NavLink to="/login"><a className="btn border-2 border-pink-600 bg-pink-600 text-white hover:bg-[transparent] hover:border-2 hover:border-pink-600 hover:text-pink-600 font-bold">Login</a></NavLink>
         }

@@ -1,44 +1,50 @@
 [
-    {
-      "id": "1",
-      "img": "https://i.ibb.co/kHkNbnq/Baby-shower-Party-planner.jpg",
-      "price": "$500",
-      "title": "Elegant Wedding Soiree",
-      "description": "Join us for a night of love and celebration as we unite in matrimony. Enjoy gourmet cuisine, live music, and a dance under the stars."
-    },
-    {
-      "id": "2",
-      "img": "https://i.ibb.co/sV1MsNt/Anniversaries-Party-planner.jpg",
-      "price": "$75",
-      "title": "Summer Beach Party",
-      "description": "Get ready to soak up the sun at our annual beach bash! Great music, beach games, and delicious barbecue await you."
-    },
-    {
-      "id": "3",
-      "img": "https://i.ibb.co/ngRgngV/Birthday-Party-planner.jpg",
-      "price": "$200",
-      "title": "Corporate Gala Dinner",
-      "description": "A night of networking and recognition awaits at our corporate gala. Indulge in a gourmet feast and celebrate achievements."
-    },
-    {
-      "id": "4",
-      "img": "https://i.ibb.co/84qr9Tp/carousel-img-01.jpg",
-      "price": "$50",
-      "title": "Halloween Masquerade Ball",
-      "description": "Put on your most mysterious mask and join us for a night of enchantment and spookiness. Costume contest and eerie delights included."
-    },
-    {
-      "id": "5",
-      "img": "https://i.ibb.co/QQzgP96/Engagement-party-planner.jpg",
-      "price": "$125",
-      "title": "Family Fun Day",
-      "description": "A day filled with laughter and activities for the whole family. Games, rides, face painting, and yummy treats for everyone!"
-    },
-    {
-      "id": "6",
-      "img": "https://i.ibb.co/Z6BLtYM/Retirement-Party-planner.jpg",
-      "price": "$40",
-      "title": "Cocktail Mixology Class",
-      "description": "Learn the art of mixology from our expert bartenders. Craft your own cocktails and enjoy a fun night out with friends."
-    }
-  ]
+  {
+    "id": "1",
+    "img": "https://i.ibb.co/kHkNbnq/Baby-shower-Party-planner.jpg",
+    "price": "$1,200",
+    "title": "Elegant Wedding Soiree",
+    "description": "Join us for a night of love and celebration as we unite in matrimony. Enjoy gourmet cuisine, live music, and a dance under the stars.",
+    "longDescription": "Experience the epitome of elegance and romance with our Elegant Wedding Soiree. Immerse yourself in a night filled with love and celebration, where every detail is meticulously crafted to make your special day truly unforgettable. Indulge in a gourmet feast that will tantalize your taste buds, dance the night away to enchanting live music, and create lasting memories in a breathtaking venue adorned with sophistication and style."
+  },
+  {
+    "id": "2",
+    "img": "https://i.ibb.co/sV1MsNt/Anniversaries-Party-planner.jpg",
+    "price": "$150",
+    "title": "Summer Beach Party",
+    "description": "Get ready to soak up the sun at our annual beach bash! Great music, beach games, and delicious barbecue await you.",
+    "longDescription": "Celebrate the warmth of summer at our Summer Beach Party! Immerse yourself in the sun-soaked festivities as you enjoy the rhythmic beats of great music, participate in thrilling beach games, and savor the delectable flavors of a barbecue feast. It's a day filled with joy, laughter, and the vibrant energy of a beach paradise."
+  },
+  {
+    "id": "3",
+    "img": "https://i.ibb.co/ngRgngV/Birthday-Party-planner.jpg",
+    "price": "$500",
+    "title": "Corporate Gala Dinner",
+    "description": "A night of networking and recognition awaits at our corporate gala. Indulge in a gourmet feast and celebrate achievements.",
+    "longDescription": "Step into a world of sophistication and achievement at our Corporate Gala Dinner. This exclusive event is designed for networking and recognition, where you'll indulge in a sumptuous gourmet feast and raise a toast to celebrate the milestones and successes of your organization. Join us for an evening of elegance, camaraderie, and corporate excellence."
+  },
+  {
+    "id": "4",
+    "img": "https://i.ibb.co/84qr9Tp/carousel-img-01.jpg",
+    "price": "$75",
+    "title": "Halloween Masquerade Ball",
+    "description": "Put on your most mysterious mask and join us for a night of enchantment and spookiness. Costume contest and eerie delights included.",
+    "longDescription": "Dive into a world of enchantment and spookiness at our Halloween Masquerade Ball. Put on your most mysterious mask and join the mystical celebration filled with a thrilling costume contest, eerie delights, and a night of hauntingly good fun. It's a supernatural soirée that promises to bewitch and beguile all who dare to attend."
+  },
+  {
+    "id": "5",
+    "img": "https://i.ibb.co/QQzgP96/Engagement-party-planner.jpg",
+    "price": "$300",
+    "title": "Family Fun Day",
+    "description": "A day filled with laughter and activities for the whole family. Games, rides, face painting, and yummy treats for everyone!",
+    "longDescription": "Embark on a day filled with joy and excitement at our Family Fun Day. Bring the whole family for a delightful experience featuring laughter, games, thrilling rides, creative face painting, and delectable treats that will satisfy every palate. It's a celebration of togetherness and happiness that promises unforgettable moments for every family member."
+  },
+  {
+    "id": "6",
+    "img": "https://i.ibb.co/Z6BLtYM/Retirement-Party-planner.jpg",
+    "price": "$60",
+    "title": "Cocktail Mixology Class",
+    "description": "Learn the art of mixology from our expert bartenders. Craft your own cocktails and enjoy a fun night out with friends.",
+    "longDescription": "Unleash your inner mixologist at our Cocktail Mixology Class. Learn the art of crafting exquisite cocktails from our expert bartenders and indulge in a night of fun and friendship. Whether you're a novice or a seasoned cocktail enthusiast, this hands-on experience will leave you with the skills to shake and stir your way to creating delicious drinks. Join us for a night of laughter, learning, and libations."
+  }
+]

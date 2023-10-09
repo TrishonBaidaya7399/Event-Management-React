@@ -24,9 +24,10 @@ const Services = () => {
             <figure className="">
               <img src={event.img} alt="Event" className="rounded-t-lg w-full h-[250px]" />
             </figure>
-            <div className="card-body text-left">
-              <h2 className="card-title">{event.title}</h2>
+            <div className="card-body text-left my-[-20px]">
+              <h2 className="card-title text-2xl text-pink-600 font-bold">{event.title}</h2>
               <p>{event.description}</p>
+              <p className='text-pink-600 font-semibold text-xl'>{event.price}</p>
               <div className="card-actions">
                 {/* Use Link to navigate to the ServiceDetails page with the event ID */}
                 <Link to={`/servicedetails/${event.id}`} className="btn bg-pink-600 text-white text-[16px] font-semibold">Details</Link>

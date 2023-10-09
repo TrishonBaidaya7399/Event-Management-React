@@ -8,12 +8,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
-const {createUser,signInWithGoogle} = useContext(AuthContext);
+const {createUser,signInWithGoogle,setUser, user} = useContext(AuthContext);
 const [error, setError] = useState(null);
 const [register, setRegister] = useState(false);
 const navigate = useNavigate();
 
-    const handleRegister= e=>{
+    const handleRegister = e=>{
         e.preventDefault();
         setError(null);
         setRegister(true);
@@ -23,20 +23,40 @@ const navigate = useNavigate();
         const image = form.get('image');
         const email = form.get('email');
         const password = form.get('password');
+        const accepted = e.target.terms.checked;
         console.log(email, password, image, name);
 
-      // Password validation
-  const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@$!%*?&])(?=.*\d).{8,}$/;
-  if (!passwordPattern.test(password)) {
-    setError("Password must include at least one uppercase letter, one lowercase letter, one special character, one number, and be at least 8 characters long.");
-    setRegister(false);
-    return;
-  }
+       //password validation 
+       if(password.length<6){
+        setError("Password should be at least 6 characters")
+        return;
+    }
+    else if(!/[a-z]/.test(password)){
+        setError("Password should have at least one lowercase character");
+        return;
+    }
+    else if(!/[A-Z]/.test(password)){
+        setError("Password should have at least one uppercase character");
+        return;
+    }
+    else if(!/[0-9]/.test(password)){
+        setError("Password should have at least one number character");
+        return;
+    }
+    else if(!/[!@#$%^&*()_+"'`~]/.test(password)){
+        setError("Password should have at least one special character");
+        return;
+    }else if(!accepted){
+        setError('Please accept our terms and condition')
+        return;
+    }
         //create user
         createUser(email, password)
         .then(result=>{
           console.log(result.user);
+          
           setRegister(false);
+          setUser({...user, displayName: name, photoURL: image }) //.......................................................................
           toast.success('Registration successful!', {
             position: 'top-right',
             autoClose: 3000, // Close the notification after 3 seconds
@@ -45,6 +65,8 @@ const navigate = useNavigate();
             pauseOnHover: true,
             draggable: true,
           });
+
+          return result.user; //to  prevent automatic login after successful registration
         })
         .catch(error=>{
           console.error(error.message);
@@ -112,6 +134,10 @@ const navigate = useNavigate();
     {
       (error && <p className="text-[16px] font-semibold text-red-500">{error}</p> )
     }
+    <div className="flex items-center justify-center mt-2 mb-[-8px]">
+      <input type="checkbox" name="terms" id="terms" className="mr-2" />
+      <label htmlFor="terms">Accept our <a href="#">Terms & Condition</a></label>
+    </div>
     <div className="form-control mt-6">
       <button type="submit" className="btn bg-pink-600 text-white font-bold hover:text-pink-600 hover:bg-[transparent] hover:border-2 hover:border-pink-600">{register ? "Registering..." : "Register"}</button>
     </div>
