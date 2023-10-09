@@ -60,7 +60,7 @@ const navigate = useNavigate();
             displayName: name,
             photoURL: image,
           })
-            .then(()=> alert('Profile Updated'))
+            .then(()=> console.log('Profile updated!'))
             .catch(error=>{
             console.log(error.message);
           })
