@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { updateProfile } from 'firebase/auth';
 
 
 const Register = () => {
@@ -54,7 +55,15 @@ const navigate = useNavigate();
         createUser(email, password)
         .then(result=>{
           console.log(result.user);
-          
+          //update profile
+          updateProfile(result.user, {
+            displayName: name,
+            photoURL: image,
+          })
+            .then(()=> alert('Profile Updated'))
+            .catch(error=>{
+            console.log(error.message);
+          })
           setRegister(false);
           setUser({...user, displayName: name, photoURL: image }) //.......................................................................
           toast.success('Registration successful!', {
@@ -65,8 +74,6 @@ const navigate = useNavigate();
             pauseOnHover: true,
             draggable: true,
           });
-
-          return result.user; //to  prevent automatic login after successful registration
         })
         .catch(error=>{
           console.error(error.message);

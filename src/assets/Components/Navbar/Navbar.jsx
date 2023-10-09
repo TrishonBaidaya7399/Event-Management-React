@@ -12,6 +12,7 @@ const Navbar = () => {
     logout()
     .then(result=>{
       console.log("Logged out successfully!", result);
+      console.log(user)
       toast.success('Logged out successfully!', {
         position: 'top-right',
         autoClose: 3000, // Close the notification after 3 seconds
